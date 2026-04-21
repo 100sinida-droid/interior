@@ -3,13 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Journal | BINTER — 빈터공간</title>
+<title>Journal | BinteoSpace 빈터공간</title>
 <meta name="description" content="빈터공간의 디자인 인사이트와 프로젝트 이야기.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Nanum+Myeongjo:wght@400;700&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/shared.css">
 <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #f5f2ed; --bg-dark: #1a1816; --ink: #1a1816;
+    --ink-soft: #4a453f; --ink-muted: #8a8378;
+    --line: #d9d2c5; --accent: #8b6f47;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Archivo', 'Nanum Myeongjo', serif;
+    background: var(--bg); color: var(--ink);
+    font-weight: 300; line-height: 1.6;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+  .korean { font-family: 'Nanum Myeongjo', serif; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  /* Navigation */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.8rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(245, 242, 237, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(217, 210, 197, 0.5);
+  }
+  nav .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400;
+    letter-spacing: 0.25em; color: var(--ink);
+  }
+  nav ul { display: flex; gap: 2.5rem; }
+  nav ul a {
+    font-size: 0.78rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    position: relative; padding-bottom: 2px;
+    color: var(--ink);
+  }
+  nav ul a::after {
+    content: ''; position: absolute; left: 0; bottom: 0;
+    width: 0; height: 1px; background: var(--ink);
+    transition: width 0.4s ease;
+  }
+  nav ul a:hover::after, nav ul a.active::after { width: 100%; }
+
+  /* Page Hero */
+  .page-hero {
+    padding: 12rem 3rem 6rem;
+    max-width: 1400px; margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+  }
+  .page-label {
+    font-size: 0.75rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  .page-title em { font-style: italic; }
+  .page-sub {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.05rem; line-height: 1.9;
+    max-width: 600px; color: var(--ink-soft);
+  }
+
+  /* Featured */
   .journal-featured {
     max-width: 1400px; margin: 0 auto;
     padding: 6rem 3rem;
@@ -17,30 +90,23 @@
     align-items: center;
     border-bottom: 1px solid var(--line);
   }
-  .featured-image {
-    aspect-ratio: 4/3;
-    overflow: hidden;
-  }
+  .featured-image { aspect-ratio: 4/3; overflow: hidden; }
   .featured-tag {
     font-size: 0.7rem; letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--accent);
+    text-transform: uppercase; color: var(--accent);
     margin-bottom: 1.5rem;
   }
   .featured-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 300;
-    line-height: 1.2;
+    font-weight: 300; line-height: 1.2;
     margin-bottom: 1.5rem;
   }
   .featured-title em { font-style: italic; }
   .featured-excerpt {
     font-family: 'Nanum Myeongjo', serif;
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: var(--ink-soft);
-    margin-bottom: 2rem;
+    font-size: 0.95rem; line-height: 1.9;
+    color: var(--ink-soft); margin-bottom: 2rem;
   }
   .featured-meta {
     font-size: 0.75rem; letter-spacing: 0.2em;
@@ -49,25 +115,23 @@
     display: flex; gap: 2rem;
   }
   .read-more {
-    display: inline-block;
-    margin-top: 2rem;
+    display: inline-block; margin-top: 2rem;
     padding-bottom: 4px;
     border-bottom: 1px solid var(--ink);
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
+    font-size: 0.8rem; letter-spacing: 0.2em;
     text-transform: uppercase;
     transition: padding-right 0.3s ease;
   }
   .read-more:hover { padding-right: 1.5rem; }
 
+  /* Grid */
   .journal-grid {
     max-width: 1400px; margin: 0 auto;
     padding: 6rem 3rem 8rem;
   }
   .journal-section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 2rem; font-weight: 300;
     font-style: italic;
     margin-bottom: 4rem;
     padding-bottom: 2rem;
@@ -77,40 +141,28 @@
     display: grid; grid-template-columns: 1fr 1fr 1fr;
     gap: 4rem 3rem;
   }
-  .journal-card {
-    cursor: pointer;
-  }
-  .journal-card:hover .card-image img {
-    transform: scale(1.03);
-  }
+  .journal-card { cursor: pointer; }
+  .journal-card:hover .card-image img { transform: scale(1.03); }
   .card-image {
-    aspect-ratio: 4/3;
-    overflow: hidden;
+    aspect-ratio: 4/3; overflow: hidden;
     margin-bottom: 1.5rem;
   }
-  .card-image img {
-    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
+  .card-image img { transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .card-tag {
     font-size: 0.7rem; letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent);
+    text-transform: uppercase; color: var(--accent);
     margin-bottom: 0.8rem;
   }
   .card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1.3;
-    margin-bottom: 1rem;
+    font-size: 1.4rem; font-weight: 400;
+    line-height: 1.3; margin-bottom: 1rem;
   }
   .card-title em { font-style: italic; }
   .card-excerpt {
     font-family: 'Nanum Myeongjo', serif;
-    font-size: 0.85rem;
-    line-height: 1.8;
-    color: var(--ink-soft);
-    margin-bottom: 1rem;
+    font-size: 0.85rem; line-height: 1.8;
+    color: var(--ink-soft); margin-bottom: 1rem;
   }
   .card-meta {
     font-size: 0.7rem; letter-spacing: 0.2em;
@@ -120,17 +172,61 @@
     border-top: 1px solid var(--line);
   }
 
+  /* Footer */
+  footer {
+    background: var(--bg-dark); color: #c9c2b5;
+    padding: 5rem 3rem 2rem;
+  }
+  .footer-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem; padding-bottom: 4rem;
+    border-bottom: 1px solid #3a3530;
+  }
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; letter-spacing: 0.25em;
+    color: #fff; margin-bottom: 1.5rem;
+  }
+  .footer-brand p {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 0.9rem; line-height: 1.9;
+    max-width: 300px;
+  }
+  .footer-col h4 {
+    font-size: 0.75rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8a8378;
+    margin-bottom: 1.5rem; font-weight: 400;
+  }
+  .footer-col li {
+    font-size: 0.85rem; margin-bottom: 0.8rem;
+  }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: 1400px; margin: 0 auto;
+    padding-top: 2rem;
+    display: flex; justify-content: space-between;
+    font-size: 0.75rem; color: #8a8378;
+    letter-spacing: 0.1em;
+  }
+
   @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    nav ul { display: none; }
+    .page-hero { padding: 8rem 1.5rem 4rem; }
     .journal-featured { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
     .journal-grid { padding: 3rem 1.5rem 5rem; }
     .journal-list { grid-template-columns: 1fr; gap: 3rem; }
+    footer { padding: 4rem 1.5rem 2rem; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="logo">BINTER</a>
+  <a href="index.html" class="logo">BINTEO</a>
   <ul>
     <li><a href="about.html">About</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
@@ -147,7 +243,7 @@
     material, and light.
   </h1>
   <p class="page-sub korean">
-    빈터공간이 작업하며 발견한 것들, 주거공간에 대한 생각,
+    BinteoSpace 빈터공간이 작업하며 발견한 것들, 주거공간에 대한 생각,
     소재와 디자인에 관한 기록을 모아둔 저널입니다.
   </p>
 </section>
@@ -256,9 +352,10 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="logo">BINTER</div>
+      <div class="logo">BINTEO</div>
       <p class="korean">
-        빈터공간 — 여백에서 시작되는 주거공간.<br>
+        BinteoSpace 빈터공간<br>
+        여백에서 시작되는 주거공간.<br>
         Residential interior design studio based in Seoul.
       </p>
     </div>
@@ -281,14 +378,14 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
-        <li>hello@binter.space</li>
-        <li>02-0000-0000</li>
+        <li><a href="https://www.instagram.com/binteospace/" target="_blank" rel="noopener">@binteospace</a></li>
+        <li>DM for inquiry</li>
         <li>Seoul, Korea</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© 2025 BINTER SPACE. All rights reserved.</div>
+    <div>© 2025 BINTEOSPACE. All rights reserved.</div>
     <div>Instagram · Journal · Press</div>
   </div>
 </footer>

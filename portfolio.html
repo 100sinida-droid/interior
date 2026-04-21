@@ -3,43 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | BINTER — 빈터공간</title>
+<title>Portfolio | BinteoSpace 빈터공간</title>
 <meta name="description" content="빈터공간의 주거 인테리어 프로젝트 아카이브.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Nanum+Myeongjo:wght@400;700&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/shared.css">
 <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #f5f2ed; --bg-dark: #1a1816; --ink: #1a1816;
+    --ink-soft: #4a453f; --ink-muted: #8a8378;
+    --line: #d9d2c5; --accent: #8b6f47;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Archivo', 'Nanum Myeongjo', serif;
+    background: var(--bg); color: var(--ink);
+    font-weight: 300; line-height: 1.6;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+  .korean { font-family: 'Nanum Myeongjo', serif; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  /* Navigation */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.8rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(245, 242, 237, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(217, 210, 197, 0.5);
+  }
+  nav .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400;
+    letter-spacing: 0.25em; color: var(--ink);
+  }
+  nav ul { display: flex; gap: 2.5rem; }
+  nav ul a {
+    font-size: 0.78rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    position: relative; padding-bottom: 2px;
+    color: var(--ink);
+  }
+  nav ul a::after {
+    content: ''; position: absolute; left: 0; bottom: 0;
+    width: 0; height: 1px; background: var(--ink);
+    transition: width 0.4s ease;
+  }
+  nav ul a:hover::after, nav ul a.active::after { width: 100%; }
+
+  /* Page Hero */
+  .page-hero {
+    padding: 12rem 3rem 6rem;
+    max-width: 1400px; margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+  }
+  .page-label {
+    font-size: 0.75rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  .page-title em { font-style: italic; }
+  .page-sub {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.05rem; line-height: 1.9;
+    max-width: 600px; color: var(--ink-soft);
+  }
+
+  /* Filter */
   .filter-bar {
     max-width: 1400px; margin: 0 auto;
     padding: 3rem;
     display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid var(--line);
   }
-  .filter-tabs {
-    display: flex; gap: 2.5rem; list-style: none;
-  }
+  .filter-tabs { display: flex; gap: 2.5rem; }
   .filter-tabs li {
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
+    font-size: 0.8rem; letter-spacing: 0.2em;
     text-transform: uppercase;
     cursor: pointer;
     padding-bottom: 0.3rem;
     border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, color 0.3s ease;
     color: var(--ink-muted);
   }
-  .filter-tabs li.active,
-  .filter-tabs li:hover {
+  .filter-tabs li.active, .filter-tabs li:hover {
     color: var(--ink);
     border-bottom-color: var(--ink);
   }
   .filter-view {
     font-size: 0.75rem; letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
+    text-transform: uppercase; color: var(--ink-muted);
   }
 
+  /* Portfolio grid */
   .portfolio-grid {
     max-width: 1400px; margin: 0 auto;
     padding: 6rem 3rem 8rem;
@@ -47,45 +116,31 @@
     grid-template-columns: repeat(12, 1fr);
     gap: 5rem 3rem;
   }
-  .portfolio-item {
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-  }
-  .portfolio-item:hover .portfolio-image img {
-    transform: scale(1.04);
-  }
+  .portfolio-item { cursor: pointer; }
+  .portfolio-item:hover .portfolio-image img { transform: scale(1.04); }
   .portfolio-image {
-    overflow: hidden;
-    margin-bottom: 1.5rem;
+    overflow: hidden; margin-bottom: 1.5rem;
   }
-  .portfolio-image img {
-    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
+  .portfolio-image img { transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .portfolio-meta {
     display: flex; justify-content: space-between; align-items: baseline;
   }
   .portfolio-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.6rem; font-weight: 400;
   }
   .portfolio-title em { font-style: italic; }
   .portfolio-info {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: 0.75rem; letter-spacing: 0.15em;
     color: var(--ink-muted);
     text-transform: uppercase;
     text-align: right;
   }
   .portfolio-desc {
     font-family: 'Nanum Myeongjo', serif;
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    margin-top: 0.8rem;
-    max-width: 500px;
+    font-size: 0.9rem; color: var(--ink-soft);
+    margin-top: 0.8rem; max-width: 500px;
   }
-
-  /* Asymmetric grid */
   .portfolio-item:nth-child(1) { grid-column: 1 / 8; }
   .portfolio-item:nth-child(1) .portfolio-image { aspect-ratio: 4/3; }
   .portfolio-item:nth-child(2) { grid-column: 9 / 13; margin-top: 6rem; }
@@ -99,18 +154,62 @@
   .portfolio-item:nth-child(6) { grid-column: 8 / 13; margin-top: 5rem; }
   .portfolio-item:nth-child(6) .portfolio-image { aspect-ratio: 3/4; }
 
+  /* Footer */
+  footer {
+    background: var(--bg-dark); color: #c9c2b5;
+    padding: 5rem 3rem 2rem;
+  }
+  .footer-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem; padding-bottom: 4rem;
+    border-bottom: 1px solid #3a3530;
+  }
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; letter-spacing: 0.25em;
+    color: #fff; margin-bottom: 1.5rem;
+  }
+  .footer-brand p {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 0.9rem; line-height: 1.9;
+    max-width: 300px;
+  }
+  .footer-col h4 {
+    font-size: 0.75rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #8a8378;
+    margin-bottom: 1.5rem; font-weight: 400;
+  }
+  .footer-col li {
+    font-size: 0.85rem; margin-bottom: 0.8rem;
+  }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: 1400px; margin: 0 auto;
+    padding-top: 2rem;
+    display: flex; justify-content: space-between;
+    font-size: 0.75rem; color: #8a8378;
+    letter-spacing: 0.1em;
+  }
+
   @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    nav ul { display: none; }
+    .page-hero { padding: 8rem 1.5rem 4rem; }
     .filter-bar { padding: 2rem 1.5rem; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
     .filter-tabs { gap: 1.5rem; }
     .portfolio-grid { padding: 3rem 1.5rem 5rem; gap: 4rem 1.5rem; }
     .portfolio-item:nth-child(n) { grid-column: 1 / 13; margin-top: 0; }
+    footer { padding: 4rem 1.5rem 2rem; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="logo">BINTER</a>
+  <a href="index.html" class="logo">BINTEO</a>
   <ul>
     <li><a href="about.html">About</a></li>
     <li><a href="portfolio.html" class="active">Portfolio</a></li>
@@ -127,7 +226,7 @@
     아카이브.
   </h1>
   <p class="page-sub korean">
-    그동안 빈터공간이 완성한 주거공간 프로젝트입니다.
+    그동안 BinteoSpace 빈터공간이 완성한 주거공간 프로젝트입니다.
     각 공간은 클라이언트의 삶에 맞게 고유한 언어로 설계되었습니다.
   </p>
 </section>
@@ -150,10 +249,7 @@
     </div>
     <div class="portfolio-meta">
       <div class="portfolio-title">Hannam <em>Residence</em></div>
-      <div class="portfolio-info">
-        Residential · 42py<br>
-        Hannam-dong · 2025
-      </div>
+      <div class="portfolio-info">Residential · 42py<br>Hannam-dong · 2025</div>
     </div>
     <p class="portfolio-desc">트래버틴과 화이트 오크를 중심으로 한 갤러리 감성의 주거공간.</p>
   </a>
@@ -164,10 +260,7 @@
     </div>
     <div class="portfolio-meta">
       <div class="portfolio-title">Seongbuk <em>House</em></div>
-      <div class="portfolio-info">
-        House · 58py<br>
-        Seongbuk · 2025
-      </div>
+      <div class="portfolio-info">House · 58py<br>Seongbuk · 2025</div>
     </div>
     <p class="portfolio-desc">자연 채광과 정원의 풍경을 중심으로 설계된 단독주택 리노베이션.</p>
   </a>
@@ -178,10 +271,7 @@
     </div>
     <div class="portfolio-meta">
       <div class="portfolio-title">Banpo <em>Apartment</em></div>
-      <div class="portfolio-info">
-        Residential · 35py<br>
-        Banpo · 2024
-      </div>
+      <div class="portfolio-info">Residential · 35py<br>Banpo · 2024</div>
     </div>
     <p class="portfolio-desc">절제된 모노톤과 따뜻한 우드가 조화를 이루는 아파트 리모델링.</p>
   </a>
@@ -192,10 +282,7 @@
     </div>
     <div class="portfolio-meta">
       <div class="portfolio-title">Cheongdam <em>Penthouse</em></div>
-      <div class="portfolio-info">
-        Penthouse · 68py<br>
-        Cheongdam · 2024
-      </div>
+      <div class="portfolio-info">Penthouse · 68py<br>Cheongdam · 2024</div>
     </div>
     <p class="portfolio-desc">파노라믹 뷰와 인테리어의 경계를 허문 고층 펜트하우스.</p>
   </a>
@@ -206,10 +293,7 @@
     </div>
     <div class="portfolio-meta">
       <div class="portfolio-title">Pangyo <em>House</em></div>
-      <div class="portfolio-info">
-        House · 52py<br>
-        Pangyo · 2023
-      </div>
+      <div class="portfolio-info">House · 52py<br>Pangyo · 2023</div>
     </div>
     <p class="portfolio-desc">가족의 일상 동선을 중심으로 설계된 따뜻한 우드톤의 주택.</p>
   </a>
@@ -220,10 +304,7 @@
     </div>
     <div class="portfolio-meta">
       <div class="portfolio-title">Seocho <em>Residence</em></div>
-      <div class="portfolio-info">
-        Residential · 38py<br>
-        Seocho · 2023
-      </div>
+      <div class="portfolio-info">Residential · 38py<br>Seocho · 2023</div>
     </div>
     <p class="portfolio-desc">중립적인 톤 위에 예술 작품이 돋보이는 컬렉터의 공간.</p>
   </a>
@@ -232,9 +313,10 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="logo">BINTER</div>
+      <div class="logo">BINTEO</div>
       <p class="korean">
-        빈터공간 — 여백에서 시작되는 주거공간.<br>
+        BinteoSpace 빈터공간<br>
+        여백에서 시작되는 주거공간.<br>
         Residential interior design studio based in Seoul.
       </p>
     </div>
@@ -257,14 +339,14 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
-        <li>hello@binter.space</li>
-        <li>02-0000-0000</li>
+        <li><a href="https://www.instagram.com/binteospace/" target="_blank" rel="noopener">@binteospace</a></li>
+        <li>DM for inquiry</li>
         <li>Seoul, Korea</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© 2025 BINTER SPACE. All rights reserved.</div>
+    <div>© 2025 BINTEOSPACE. All rights reserved.</div>
     <div>Instagram · Journal · Press</div>
   </div>
 </footer>
