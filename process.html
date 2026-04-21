@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process | BINTER — 빈터공간</title>
+<meta name="description" content="빈터공간의 디자인 프로세스 — 상담부터 완공, 애프터케어까지.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Nanum+Myeongjo:wght@400;700&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  .phase {
+    max-width: 1400px; margin: 0 auto;
+    padding: 8rem 3rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .phase:nth-child(even) .phase-text { order: 2; }
+  .phase:nth-child(even) .phase-image { order: 1; }
+
+  .phase-image {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .phase-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 2rem;
+  }
+  .phase-label {
+    font-size: 0.75rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+  .phase-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+  .phase-title em { font-style: italic; }
+  .phase-desc {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+  .phase-list {
+    list-style: none;
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+  }
+  .phase-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    display: flex; gap: 1.5rem;
+  }
+  .phase-list li::before {
+    content: '—';
+    color: var(--accent);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+
+  .timeline {
+    background: var(--bg-dark);
+    color: #c9c2b5;
+    padding: 10rem 3rem;
+    text-align: center;
+  }
+  .timeline-label {
+    font-size: 0.75rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #8a8378;
+    margin-bottom: 2rem;
+  }
+  .timeline-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 4rem;
+    color: #e8e3d9;
+  }
+  .timeline-title em { font-style: italic; }
+  .timeline-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .timeline-item {
+    text-align: left;
+    padding: 2rem 0;
+    border-top: 1px solid #3a3530;
+  }
+  .timeline-item .weeks {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-item .stage {
+    font-size: 0.8rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #e8e3d9;
+  }
+
+  @media (max-width: 900px) {
+    .phase { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+    .phase:nth-child(even) .phase-text { order: 0; }
+    .phase:nth-child(even) .phase-image { order: 0; }
+    .phase-num { font-size: 4rem; }
+    .timeline { padding: 5rem 1.5rem; }
+    .timeline-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">BINTER</a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="process.html" class="active">Process</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-label">— How we work / 04 Phases</div>
+  <h1 class="page-title">
+    From <em>conversation</em><br>to completion.
+  </h1>
+  <p class="page-sub korean">
+    빈터공간은 네 단계의 프로세스로 클라이언트와 함께 공간을 완성합니다.
+    각 단계는 충분한 시간을 두고 진행되며, 우리는 과정의 밀도를 중요하게 여깁니다.
+  </p>
+</section>
+
+<div class="phase">
+  <div class="phase-text">
+    <div class="phase-num">01</div>
+    <div class="phase-label">— Consultation</div>
+    <h2 class="phase-title"><em>Listening</em> first.</h2>
+    <p class="phase-desc korean">
+      모든 프로젝트는 대화에서 시작됩니다. 클라이언트의 라이프스타일,
+      공간에 대한 기억, 앞으로의 삶에 대한 기대를 충분히 듣고 기록합니다.
+      우리는 좋은 공간이 좋은 질문에서 나온다고 믿습니다.
+    </p>
+    <ul class="phase-list">
+      <li>초기 상담 (온라인 또는 스튜디오 방문)</li>
+      <li>현장 실측 및 공간 분석</li>
+      <li>예산 및 일정 논의</li>
+      <li>프로젝트 제안서 발송</li>
+    </ul>
+  </div>
+  <div class="phase-image">
+    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=1200&q=80" alt="Consultation">
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-text">
+    <div class="phase-num">02</div>
+    <div class="phase-label">— Design</div>
+    <h2 class="phase-title"><em>Designing</em> the atmosphere.</h2>
+    <p class="phase-desc korean">
+      공간의 평면부터 소재, 조명, 가구까지 하나의 언어로 연결되도록 설계합니다.
+      3D 비주얼라이제이션과 실제 소재 샘플을 통해 최종 결과를 함께 그려봅니다.
+      이 단계에서 충분한 시간을 쓰는 것이 공사의 완성도를 결정합니다.
+    </p>
+    <ul class="phase-list">
+      <li>콘셉트 보드 및 무드 프레젠테이션</li>
+      <li>평면 설계 및 3D 비주얼라이제이션</li>
+      <li>소재 · 조명 · 가구 큐레이션</li>
+      <li>최종 도면 및 견적 확정</li>
+    </ul>
+  </div>
+  <div class="phase-image">
+    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80" alt="Design">
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-text">
+    <div class="phase-num">03</div>
+    <div class="phase-label">— Construction</div>
+    <h2 class="phase-title"><em>Building</em> with care.</h2>
+    <p class="phase-desc korean">
+      자체 시공팀과 오랫동안 함께해 온 장인들이 디자인 의도를 완성도 있게 실현합니다.
+      주 1회 이상의 현장 점검과 정기 리포트를 통해 클라이언트와 과정을 공유합니다.
+    </p>
+    <ul class="phase-list">
+      <li>착공 및 주간 현장 리포트</li>
+      <li>마감재 검수 및 품질 관리</li>
+      <li>가구 · 조명 설치 및 스타일링</li>
+      <li>완공 및 최종 확인</li>
+    </ul>
+  </div>
+  <div class="phase-image">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" alt="Construction">
+  </div>
+</div>
+
+<div class="phase">
+  <div class="phase-text">
+    <div class="phase-num">04</div>
+    <div class="phase-label">— Aftercare</div>
+    <h2 class="phase-title"><em>Living</em> with the space.</h2>
+    <p class="phase-desc korean">
+      완공이 프로젝트의 끝이 아니라고 생각합니다. 공간이 시간과 함께 잘 늙어갈 수 있도록
+      정기 점검과 유지보수 상담을 제공합니다. 클라이언트의 삶이 공간 안에서 깊어지는 과정을 함께합니다.
+    </p>
+    <ul class="phase-list">
+      <li>입주 후 1개월 점검</li>
+      <li>연 1회 정기 유지보수</li>
+      <li>스타일링 업데이트 상담</li>
+      <li>장기 관리 지원</li>
+    </ul>
+  </div>
+  <div class="phase-image">
+    <img src="https://images.unsplash.com/photo-1558211583-d26f610c1eb1?w=1200&q=80" alt="Aftercare">
+  </div>
+</div>
+
+<section class="timeline">
+  <div class="timeline-label">— Average Timeline</div>
+  <h2 class="timeline-title">
+    The <em>pace</em> of good design.
+  </h2>
+  <div class="timeline-grid">
+    <div class="timeline-item">
+      <div class="weeks">2–3</div>
+      <div class="stage">Consultation<br>Weeks</div>
+    </div>
+    <div class="timeline-item">
+      <div class="weeks">6–8</div>
+      <div class="stage">Design<br>Weeks</div>
+    </div>
+    <div class="timeline-item">
+      <div class="weeks">10–16</div>
+      <div class="stage">Construction<br>Weeks</div>
+    </div>
+    <div class="timeline-item">
+      <div class="weeks">∞</div>
+      <div class="stage">Aftercare<br>Ongoing</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">BINTER</div>
+      <p class="korean">
+        빈터공간 — 여백에서 시작되는 주거공간.<br>
+        Residential interior design studio based in Seoul.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="journal.html">Journal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <ul>
+        <li><a href="portfolio.html">Residential</a></li>
+        <li><a href="portfolio.html">Commercial</a></li>
+        <li><a href="portfolio.html">Archive</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>hello@binter.space</li>
+        <li>02-0000-0000</li>
+        <li>Seoul, Korea</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 BINTER SPACE. All rights reserved.</div>
+    <div>Instagram · Journal · Press</div>
+  </div>
+</footer>
+
+</body>
+</html>

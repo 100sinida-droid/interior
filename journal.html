@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal | BINTER — 빈터공간</title>
+<meta name="description" content="빈터공간의 디자인 인사이트와 프로젝트 이야기.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Nanum+Myeongjo:wght@400;700&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  .journal-featured {
+    max-width: 1400px; margin: 0 auto;
+    padding: 6rem 3rem;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .featured-image {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .featured-tag {
+    font-size: 0.7rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .featured-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .featured-title em { font-style: italic; }
+  .featured-excerpt {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+  .featured-meta {
+    font-size: 0.75rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex; gap: 2rem;
+  }
+  .read-more {
+    display: inline-block;
+    margin-top: 2rem;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--ink);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: padding-right 0.3s ease;
+  }
+  .read-more:hover { padding-right: 1.5rem; }
+
+  .journal-grid {
+    max-width: 1400px; margin: 0 auto;
+    padding: 6rem 3rem 8rem;
+  }
+  .journal-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .journal-list {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 4rem 3rem;
+  }
+  .journal-card {
+    cursor: pointer;
+  }
+  .journal-card:hover .card-image img {
+    transform: scale(1.03);
+  }
+  .card-image {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .card-image img {
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .card-tag {
+    font-size: 0.7rem; letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  .card-title em { font-style: italic; }
+  .card-excerpt {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .card-meta {
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 900px) {
+    .journal-featured { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
+    .journal-grid { padding: 3rem 1.5rem 5rem; }
+    .journal-list { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">BINTER</a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="journal.html" class="active">Journal</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-label">— Journal / Insights & Stories</div>
+  <h1 class="page-title">
+    Notes on <em>space</em>,<br>
+    material, and light.
+  </h1>
+  <p class="page-sub korean">
+    빈터공간이 작업하며 발견한 것들, 주거공간에 대한 생각,
+    소재와 디자인에 관한 기록을 모아둔 저널입니다.
+  </p>
+</section>
+
+<section class="journal-featured">
+  <div class="featured-image">
+    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1400&q=80" alt="Featured Journal">
+  </div>
+  <div>
+    <div class="featured-tag">Featured · Project Story</div>
+    <h2 class="featured-title">
+      <em>Hannam Residence</em> —<br>
+      갤러리 같은 집을<br>짓는다는 것.
+    </h2>
+    <p class="featured-excerpt korean">
+      한남동 42평 아파트의 리노베이션은 "벽이 작품을 기다리는 공간"이라는 문장에서 시작되었습니다.
+      트래버틴 대리석과 화이트 오크, 그리고 최소한의 간접 조명만으로 구성된 이 공간이
+      어떻게 완성되었는지를 기록했습니다.
+    </p>
+    <div class="featured-meta">
+      <span>2025.02.14</span>
+      <span>8 min read</span>
+    </div>
+    <a href="#" class="read-more">Read the story</a>
+  </div>
+</section>
+
+<section class="journal-grid">
+  <h3 class="journal-section-title">Recent writings</h3>
+
+  <div class="journal-list">
+    <a href="#" class="journal-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?w=1000&q=80" alt="Material Study">
+      </div>
+      <div class="card-tag">Material · Study</div>
+      <h4 class="card-title">트래버틴에 <em>대하여</em></h4>
+      <p class="card-excerpt korean">
+        우리가 왜 이 오래된 석재에 다시 주목하는가. 로마의 건축물부터 현대 주거공간까지.
+      </p>
+      <div class="card-meta">2025.01.28 · 6 min</div>
+    </a>
+
+    <a href="#" class="journal-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?w=1000&q=80" alt="Light Design">
+      </div>
+      <div class="card-tag">Insight · Lighting</div>
+      <h4 class="card-title"><em>빛의 층위</em>를<br>설계한다는 것</h4>
+      <p class="card-excerpt korean">
+        간접광과 직접광의 균형이 공간의 감정을 결정합니다. 조명 설계에 관한 기록.
+      </p>
+      <div class="card-meta">2025.01.10 · 5 min</div>
+    </a>
+
+    <a href="#" class="journal-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1000&q=80" alt="Residential Guide">
+      </div>
+      <div class="card-tag">Guide · Residential</div>
+      <h4 class="card-title">리모델링을 <em>시작하기 전</em>에</h4>
+      <p class="card-excerpt korean">
+        좋은 리모델링은 좋은 준비에서 시작됩니다. 처음 의뢰하시는 분들을 위한 가이드.
+      </p>
+      <div class="card-meta">2024.12.20 · 10 min</div>
+    </a>
+
+    <a href="#" class="journal-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=1000&q=80" alt="Oak Study">
+      </div>
+      <div class="card-tag">Material · Wood</div>
+      <h4 class="card-title">오크의 <em>시간</em></h4>
+      <p class="card-excerpt korean">
+        화이트 오크가 공간에 가져오는 따뜻함과 고요함. 시간이 쌓일수록 깊어지는 소재.
+      </p>
+      <div class="card-meta">2024.11.30 · 4 min</div>
+    </a>
+
+    <a href="#" class="journal-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1616137422495-6309f4a2fb6a?w=1000&q=80" alt="Japanese Influence">
+      </div>
+      <div class="card-tag">Essay · Influence</div>
+      <h4 class="card-title">일본 주거공간의 <em>여백</em></h4>
+      <p class="card-excerpt korean">
+        교토의 오래된 집에서 배운 것. 비어있음의 미학이 한국 주거에 주는 교훈.
+      </p>
+      <div class="card-meta">2024.11.15 · 7 min</div>
+    </a>
+
+    <a href="#" class="journal-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=1000&q=80" alt="Furniture Selection">
+      </div>
+      <div class="card-tag">Curation · Furniture</div>
+      <h4 class="card-title">우리가 <em>반복해서</em><br>선택하는 가구들</h4>
+      <p class="card-excerpt korean">
+        USM, 비트라, 몰테니. 좋은 가구는 공간의 밀도를 결정합니다.
+      </p>
+      <div class="card-meta">2024.10.28 · 6 min</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">BINTER</div>
+      <p class="korean">
+        빈터공간 — 여백에서 시작되는 주거공간.<br>
+        Residential interior design studio based in Seoul.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="journal.html">Journal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <ul>
+        <li><a href="portfolio.html">Residential</a></li>
+        <li><a href="portfolio.html">Commercial</a></li>
+        <li><a href="portfolio.html">Archive</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>hello@binter.space</li>
+        <li>02-0000-0000</li>
+        <li>Seoul, Korea</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 BINTER SPACE. All rights reserved.</div>
+    <div>Instagram · Journal · Press</div>
+  </div>
+</footer>
+
+</body>
+</html>

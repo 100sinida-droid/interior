@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | BINTER — 빈터공간</title>
+<meta name="description" content="빈터공간에 프로젝트를 문의하세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Nanum+Myeongjo:wght@400;700&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  .contact-main {
+    max-width: 1400px; margin: 0 auto;
+    padding: 6rem 3rem 10rem;
+    display: grid; grid-template-columns: 1fr 1.3fr; gap: 8rem;
+  }
+
+  .contact-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .info-block {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .info-block:last-child { border-bottom: none; }
+  .info-label {
+    font-size: 0.7rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+  .info-content {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--ink);
+  }
+  .info-content a { border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+  .info-content a:hover { border-bottom-color: var(--ink); }
+
+  /* Form */
+  .contact-form {
+    padding-left: 3rem;
+    border-left: 1px solid var(--line);
+  }
+  .form-label {
+    font-size: 0.75rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+  }
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+  }
+  .form-title em { font-style: italic; }
+
+  .form-group {
+    margin-bottom: 2.5rem;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.8rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem 0;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: border-color 0.3s ease;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-bottom-color: var(--ink);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.7;
+  }
+  .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3e%3cpath fill='%238a8378' d='M6 8L0 0h12z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .submit-btn {
+    margin-top: 2rem;
+    padding: 1.2rem 3rem;
+    border: 1px solid var(--ink);
+    background: transparent;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  .submit-btn:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .form-note {
+    margin-top: 2rem;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    .contact-main { padding: 3rem 1.5rem 5rem; grid-template-columns: 1fr; gap: 3rem; }
+    .contact-form { padding-left: 0; border-left: none; border-top: 1px solid var(--line); padding-top: 3rem; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">BINTER</a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-label">— Begin a conversation</div>
+  <h1 class="page-title">
+    Let's <em>build</em> a home<br>worth living slowly.
+  </h1>
+  <p class="page-sub korean">
+    빈터공간은 클라이언트와의 충분한 대화에서 프로젝트를 시작합니다.
+    아래 양식으로 문의를 남겨주시면 48시간 이내에 연락드립니다.
+  </p>
+</section>
+
+<section class="contact-main">
+  <div class="contact-info">
+    <div class="info-block">
+      <div class="info-label">— Studio</div>
+      <div class="info-content korean">
+        서울특별시 용산구 한남대로<br>
+        빈터공간 스튜디오<br>
+        <span style="font-family: 'Cormorant Garamond', serif; font-style: italic;">By appointment only</span>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">— Inquiry</div>
+      <div class="info-content">
+        <a href="mailto:hello@binter.space">hello@binter.space</a><br>
+        <a href="tel:+82200000000">+82 2-0000-0000</a>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">— Press</div>
+      <div class="info-content">
+        <a href="mailto:press@binter.space">press@binter.space</a>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">— Follow</div>
+      <div class="info-content">
+        <a href="#">Instagram</a><br>
+        <a href="#">Naver Blog</a><br>
+        <a href="#">Pinterest</a>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">— Hours</div>
+      <div class="info-content korean">
+        월요일 — 금요일<br>
+        10:00 — 18:00
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="form-label">— Project Inquiry</div>
+    <h2 class="form-title">
+      프로젝트를<br>
+      <em>문의해주세요.</em>
+    </h2>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">이름 / Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">연락처 / Phone</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">이메일 / Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="type">공간 유형 / Space Type</label>
+        <select id="type" name="type">
+          <option value="">선택해주세요</option>
+          <option>아파트 · Apartment</option>
+          <option>단독주택 · House</option>
+          <option>펜트하우스 · Penthouse</option>
+          <option>상업공간 · Commercial</option>
+          <option>기타 · Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="size">평수 / Size (py)</label>
+        <input type="text" id="size" name="size" placeholder="예: 35">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="budget">예산 / Budget</label>
+        <select id="budget" name="budget">
+          <option value="">선택해주세요</option>
+          <option>5천만원 이하</option>
+          <option>5천만원 — 1억</option>
+          <option>1억 — 2억</option>
+          <option>2억 이상</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="timeline">희망 시작 시기</label>
+        <select id="timeline" name="timeline">
+          <option value="">선택해주세요</option>
+          <option>1개월 이내</option>
+          <option>3개월 이내</option>
+          <option>6개월 이내</option>
+          <option>미정</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">문의 내용 / Message</label>
+      <textarea id="message" name="message" placeholder="공간에 대한 생각, 원하시는 분위기, 참고 이미지 등 자유롭게 남겨주세요."></textarea>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="alert('문의가 접수되었습니다. 48시간 내에 연락드리겠습니다.')">Send inquiry →</button>
+
+    <p class="form-note">
+      * 남겨주신 정보는 상담 목적으로만 사용되며, 외부에 공유되지 않습니다.<br>
+      * 담당자가 검토 후 48시간 이내에 회신드립니다.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">BINTER</div>
+      <p class="korean">
+        빈터공간 — 여백에서 시작되는 주거공간.<br>
+        Residential interior design studio based in Seoul.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="journal.html">Journal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <ul>
+        <li><a href="portfolio.html">Residential</a></li>
+        <li><a href="portfolio.html">Commercial</a></li>
+        <li><a href="portfolio.html">Archive</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>hello@binter.space</li>
+        <li>02-0000-0000</li>
+        <li>Seoul, Korea</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 BINTER SPACE. All rights reserved.</div>
+    <div>Instagram · Journal · Press</div>
+  </div>
+</footer>
+
+</body>
+</html>
